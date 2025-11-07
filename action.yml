@@ -61,6 +61,12 @@ inputs:
       gh-action-app-<github-run-id>-<github-run-attempt>.'
     required: false
     default: 'gh-action-app-${{ github.run_id }}-${{ github.run_attempt }}'
+  containerName:
+    description: |
+      'The name of the container within the Azure Container App. If not provided, this value will be
+      <container-app-name>.'
+    required: false
+    default: '${{ inputs.containerAppName }}'
   resourceGroup:
     description: |
       'The existing resource group that the Azure Container App will be created in. If not provided, this value will be

@@ -636,6 +636,12 @@ export class azurecontainerapps {
             // If the target label is provided, add it to the command line arguments
             this.commandLineArgs.push(`--revisions-mode Labels`, `--target-label ${this.targetLabel}`);
         }
+
+        // Get and add the container name if provided, this is needed for multi-container apps with partial
+        const containerName: string = this.toolHelper.getInput('containerName', false);
+        if (!this.util.isNullOrEmpty(containerName)) {
+            this.commandLineArgs.push(`--container-name ${containerName}`);
+        }
     }
 
     /**
